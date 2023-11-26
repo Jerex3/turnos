@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "336678963982",
+    "project_id": "tnpd-e7a80",
+    "storage_bucket": "tnpd-e7a80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336678963982:android:9be873f27889b54624655f",
+        "android_client_info": {
+          "package_name": "com.example.tnpd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336678963982-phi620eboa17rapnkebrho8fjua401gv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tnpd",
+            "certificate_hash": "8fd4de2e2aaf47b9e435b9c64e2c75bf15551456"
+          }
+        },
+        {
+          "client_id": "336678963982-6jcv4q55kckarab2ke8otrsos1kih8j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj7RFWflsEiXMkvmLKK7VDSltAfoTKGFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336678963982-6jcv4q55kckarab2ke8otrsos1kih8j0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
