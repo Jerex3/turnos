@@ -1,24 +1,24 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key});
+class CustomBottomNavigationBar extends StatelessWidget {
 
-  @override
-  State<CustomBottomNavigationBar> createState() =>
-      _CustomBottomNavigationBarState();
-}
+  final int selectedIndex;
+  final Function(int) onTap;
 
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  const CustomBottomNavigationBar({super.key, required this.selectedIndex, required this.onTap});
 
-  
 
   @override
   Widget build(BuildContext context) {
-    return  BottomNavigationBar(items: const [
-      BottomNavigationBarItem(label: "Turnos", icon: Icon(Icons.calendar_month)),
-      BottomNavigationBarItem(label: "Perfil", icon: Icon(Icons.person))
+    
+    return  BottomNavigationBar(
+      currentIndex: selectedIndex,      
+      onTap: onTap,
+      items: const [
+      BottomNavigationBarItem(label: "Turnos", icon: Icon(Icons.calendar_month), activeIcon: Icon(Icons.check)),
+      BottomNavigationBarItem(label: "Perfil", icon: Icon(Icons.person), activeIcon: Icon(Icons.check))
     ]);
   }
 }
+

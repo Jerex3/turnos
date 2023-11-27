@@ -6,21 +6,20 @@ import 'package:tnpd/presentation/auth/auth_check.dart';
 import 'package:tnpd/presentation/auth/auth_login.dart';
 import 'package:tnpd/presentation/feed/feed_page.dart';
 import 'package:tnpd/presentation/home_layout/widgets/custom_layout.dart';
+import 'package:tnpd/presentation/profile/profile_page.dart';
 import 'package:tnpd/presentation/turno/turno_page.dart';
 
 // GoRouter configuration
 final router = GoRouter(
   refreshListenable: sl<AuthCubit>(),
   redirect: (context, state) {
-    print(state.matchedLocation);
     final authCubit = sl<AuthCubit>();
 
     if (authCubit.state.loadingAuthentication) return '/';
 
     if (authCubit.state.userCredential == null) return '/login';
 
-    if (authCubit.state.userCredential != null &&
-        (state.matchedLocation == "/" || state.matchedLocation == "/login"))
+    if (state.matchedLocation == "/" || state.matchedLocation == "/login")
       return '/feed';
 
     return state.matchedLocation;
@@ -34,24 +33,31 @@ final router = GoRouter(
       path: '/login',
       builder: (context, state) => AuthLogin(),
     ),
-  
-    GoRoute(
-      path: '/turno',
-      builder: (context, state) {
-        print("asdaweqwe");
-        return TurnoPage(
-          turno: state.extra as Turno,
-        );
-      },
-    ),
+
     StatefulShellRoute.indexedStack(
-      
       branches: [
-        StatefulShellBranch(routes: [
+        StatefulShellBranch(
+          routes: [
           GoRoute(
             path: '/feed',
             builder: (context, state) {
               return FeedPage();
+            },
+          ),
+          GoRoute(
+            path: '/turno',
+            builder: (context, state) {
+              return TurnoPage(
+                turno: state.extra as Turno,
+              );
+            },
+          ),
+        ]),
+        StatefulShellBranch(routes: [
+          GoRoute(
+            path: '/profile',
+            builder: (context, state) {
+              return const ProfilePage();
             },
           ),
         ])
